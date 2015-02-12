@@ -21,5 +21,5 @@ function getName(r0, g0, b0) {
 		return a.distance - b.distance;
 	});
 	
-	return distances[0].name;
+	return distances[1].name+"y "+distances[0].name;
 }
