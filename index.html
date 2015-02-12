@@ -3,36 +3,74 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Colour Visualiser</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+
 <script type="text/javascript" src="jscolor/jscolor.js"></script>
-
-</head>
-
-<body>
-<form>
-	<label for="hex">Hex Value</label>
-	<input type="text" name="hex" id="hex" class="color"/>
-    <button type="button" value="Submit" onclick="calcHex();" href="javascript:;"> Submit </button>
-</form>
-<div id="description"></div>
+<style>
+	html, body, .container {
+		height: 100%;
+		text-align: center;
+	}
+	.container {
+		display: table;
+		vertical-align: middle;
+	}
+	.vertical-center-row {
+		display: table-cell;
+		vertical-align: middle;
+	}
+</style>
 <script src="code.js"></script>
 <script src="data.js"></script>
 <script type="text/javascript">
-   function calcHex(){
-      var hexInput = document.getElementById('hex');
-      var hexValue = "#" + hexInput.value;
-      R = hexToR(hexValue);
-      G = hexToG(hexValue);
-      B = hexToB(hexValue);
-      //alert(hexValue.value);
-	  document.getElementById('description').innerHTML = hexValue.value;
-	  name = getName(R,G,B);
-	  document.getElementById('description').innerHTML = hexValue.value + "<br /><p> You entered " + name + "!</p>";
-  }
+	function calcHex(){
+		var hexInput = document.getElementById('hex');
+		var hexValue = "#" + hexInput.value;
+		R = hexToR(hexValue);
+		G = hexToG(hexValue);
+		B = hexToB(hexValue);
+		//alert(hexValue.value);
+		name = "";
+		$("div#description").text("");
+		name = getName(R,G,B);
+		//document.getElementById('description').innerHTML = "<p> You entered " + name + "!</p>";
+		$("div#description").text("You entered " + name + "!");
+		document.body.style.backgroundColor = hexValue;
+	}
 
-function hexToR(h) {return parseInt((cutHex(h)).substring(0,2),16)}
-function hexToG(h) {return parseInt((cutHex(h)).substring(2,4),16)}
-function hexToB(h) {return parseInt((cutHex(h)).substring(4,6),16)}
-function cutHex(h) {return (h.charAt(0)=="#") ? h.substring(1,7):h}
+	function hexToR(h) {return parseInt((cutHex(h)).substring(0,2),16)}
+	function hexToG(h) {return parseInt((cutHex(h)).substring(2,4),16)}
+	function hexToB(h) {return parseInt((cutHex(h)).substring(4,6),16)}
+	function cutHex(h) {return (h.charAt(0)=="#") ? h.substring(1,7):h}
 </script>
+</head>
+
+<body>
+<div class="container">
+	<div class="row vertical-center-row">
+		<div class="col-md-4 col-md-offset-4">
+			<form>
+				<div class="form-group">
+					<label for="hex">Hex Value</label>
+					<input type="text" name="hex" id="hex" class="form-control color"/>
+				</div>
+				<button type="button" value="Submit" onclick="calcHex();" href="javascript:;" class="btn btn-default btn-block"> Submit </button>	
+			</form>
+			<br />
+			<div id="description" style="font-weight:bold;"></div>
+		</div>
+	</div>
+</div>
 </body>
 </html>
