@@ -17,14 +17,22 @@
 <script src="code.js"></script>
 <script src="data.js"></script>
 <script type="text/javascript">
-	 function calcHex(){
-      var hexValue = document.getElementById('hex');
+   function calcHex(){
+      var hexInput = document.getElementById('hex');
+      var hexValue = "#" + hexInput.value;
+      R = hexToR(hexValue);
+      G = hexToG(hexValue);
+      B = hexToB(hexValue);
       //alert(hexValue.value);
 	  document.getElementById('description').innerHTML = hexValue.value;
-	  document.getElementById('description').innerHTML = hexValue.value + "<br /><p> You entered Magic Pink!</p>";
-	  console.log(getName(238, 130, 238));
+	  name = getName(R,G,B);
+	  document.getElementById('description').innerHTML = hexValue.value + "<br /><p> You entered " + name + "!</p>";
   }
 
+function hexToR(h) {return parseInt((cutHex(h)).substring(0,2),16)}
+function hexToG(h) {return parseInt((cutHex(h)).substring(2,4),16)}
+function hexToB(h) {return parseInt((cutHex(h)).substring(4,6),16)}
+function cutHex(h) {return (h.charAt(0)=="#") ? h.substring(1,7):h}
 </script>
 </body>
 </html>
