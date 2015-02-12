@@ -1,9 +1,9 @@
-choices = {
-	"red": {r:255, g:0, b:0},
-	"cyan": {r:0, g:255, b:255},
-	"magenta": {r:255, g:0, b:255},
-	"yellow": {r:255, g:255, b:0},
-};
+// choices = {
+// 	"red": {r:255, g:0, b:0},
+// 	"cyan": {r:0, g:255, b:255},
+// 	"magenta": {r:255, g:0, b:255},
+// 	"yellow": {r:255, g:255, b:0},
+// };
 distances = new Array();
 
 function getName(r0, g0, b0) {
