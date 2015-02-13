@@ -4,9 +4,9 @@
 // 	"magenta": {r:255, g:0, b:255},
 // 	"yellow": {r:255, g:255, b:0},
 // };
-distances = new Array();
 
 function getName(r0, g0, b0) {
+	distances = new Array();
 	for(var name in choices) {
 		//console.log(name);
 		rgb = choices[name];

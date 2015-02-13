@@ -53,6 +53,7 @@
 	function hexToG(h) {return parseInt((cutHex(h)).substring(2,4),16)}
 	function hexToB(h) {return parseInt((cutHex(h)).substring(4,6),16)}
 	function cutHex(h) {return (h.charAt(0)=="#") ? h.substring(1,7):h}
+	function hide() {document.getElementById('hex').color.hidePicker()}
 </script>
 </head>
 
@@ -63,7 +64,7 @@
 			<form>
 				<div class="form-group">
 					<label for="hex">Hex Value</label>
-					<input type="text" name="hex" id="hex" class="form-control color"/>
+					<input type="text" name="hex" id="hex" class="form-control color" onchange="calcHex()"/>
 				</div>
 				<button type="button" value="Submit" onclick="calcHex();" href="javascript:;" class="btn btn-default btn-block"> Submit </button>	
 			</form>
